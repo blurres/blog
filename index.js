@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"))
 
 app.get("/", (req, res) => {
-    res.send("Sew the Door");
+    res.render("index.ejs");
 })
 
 app.listen(PORT, (req, res) => {
