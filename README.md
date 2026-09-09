@@ -13,6 +13,7 @@ Sew the Door (working title)
 
 ### Routes:
 - ```"/"``` : home page, where users can view all blog posts
+- ```"/posts/:id/``` : view post
 - ```"/create"``` : create post
 - ```"/update"``` : update post
 - ```"/delete"``` : delete post

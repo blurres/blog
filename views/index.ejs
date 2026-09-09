@@ -2,6 +2,44 @@
 
     <%- include("./includes/header.ejs") %>
 <body>
-
+    <div class="container flex-col">
+        <header class="header">
+            <a href="/" class="home text-dec-none" title="Home">
+                <h1>Sew the Door</h1>
+            </a>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, inventore!</p>
+        </header>
+        <main class="blog flex-col">
+            <div class="blog-header flex">
+                <div class="filters">
+                    <form action="/filter">
+                        <label for="sort-by">Sort by</label>
+                        <select name="sort-by" id="sort-by">
+                            <option value="">--------------</option>
+                            <option value="">recent</option>
+                            <option value="">oldest</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="add-post">
+                    <a href="/create" class="text-dec-none btn btn-add">New post</a>
+                </div>
+            </div>
+            <div class="blog-posts grid">
+                <% for (let i = 0; i < 10; i++) { %>
+                    <div class="blog-post flex-col">
+                        <img class="blog-image" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/189_Red-and-green_macaw_couple_flying_in_Chapada_dos_Guimar%C3%A3es_National_Park_Photo_by_Giles_Laurent.jpg" alt="blog-image"/>
+                        <div class="blog-info flex-col">
+                            <span class="blog-category">Blog Category <%= i %></span>
+                            <a href="/posts/<%= i %>" class="text-dec-none blog-title">
+                                <h3 class="blog-title">Blog title <%= i %></h3>
+                            </a>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
