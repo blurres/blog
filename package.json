@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "\"Sew the Door\" (working title) is a blog web app built as a capstone project for a course on full-stack web development.",
+  "homepage": "https://github.com/blurres/blog#readme",
+  "bugs": {
+    "url": "https://github.com/blurres/blog/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blurres/blog.git"
+  },
+  "license": "ISC",
+  "author": "Elivi Guiho",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^2.3.0",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}
