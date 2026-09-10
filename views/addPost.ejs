@@ -1,21 +1,26 @@
 <%- include("./includes/header.ejs"); %>
 
-<form action="/create" class="add-post-form flex-col" enctype="multipart/form-data">
+<form action="/addPost" method="POST" class="add-post-form flex-col">
         <h1 class="add-post-title">Add post</h1>
+        <hr>
         <div class="form-group flex-col">
             <label for="post-title">Title</label>
-            <input type="text" class="field" id="post-title" required>
+            <input type="text" class="field" id="post-title" name="postTitle"
+            placeholder="Post title here..." required>
         </div>
         <div class="form-group flex-col">
             <label for="post-description">Description</label>
-            <textarea name="post-description" id="post-description" class="field" rows="5"></textarea>
+            <textarea name="postDescription" id="post-description"
+            placeholder="Post description here..."
+            class="field" rows="5" required></textarea>
         </div>
         <div class="form-group flex-col">
-            <label for="post-image">Image / Banner</label>
-            <input type="file" name="post-image" id="post-image" class="field">
+            <label for="post-image">Image / Banner url</label>
+            <input type="text" name="postImageUrl" id="post-image" class="field"
+            placeholder="https://www.example.com/my_image.jpg" required>
         </div>
         <div class="form-group flex-col">
-            <button class="btn add-post-btn" type="submit">Publish</button>
+            <input class="btn add-post-btn" type="submit" value="Publish">
         </div>
     </form>
 

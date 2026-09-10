@@ -6,9 +6,43 @@ import bodyParser from "body-parser"
 const app = express();
 const PORT = 3000;
 
+
+// functions
+function createPost(req, res, next) {
+    const postTitle = req.body["postTitle"];
+    const postDescription = req.body["postDescription"];
+    const postImageUrl = req.body["postImageUrl"];
+
+    console.log(postTitle, postDescription, postImageUrl);
+    if (postTitle.length > 0 && postDescription.length > 0 && postImageUrl.length > 0) {
+        const newPost = {
+            id: posts.length + 1,
+            title: postTitle,
+            description: postDescription,
+            image: postImageUrl
+        }
+
+        posts.push(newPost);
+        // console.log(posts)
+    } else {
+        alert("Submission failed, all fields are required!");
+        res.render("addPost.ejs");
+    }
+
+    next();
+
+}
+
 // Middlewares
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.post("/addPost", createPost, (req, res) => {
+    // res.send(200);
+    setTimeout(() => {
+        res.redirect("/");
+    }, 2000);
+})
+
 
 app.get("/", (req, res) => {
     res.render("index.ejs", {
@@ -16,9 +50,11 @@ app.get("/", (req, res) => {
     });
 })
 
-app.get("/create", (req, res) => {
+app.get("/addPost", (req, res) => {
     res.render("addPost.ejs");
 })
+
+
 
 app.listen(PORT, (req, res) => {
     console.log(`Listenning on port ${PORT}...`);
