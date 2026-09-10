@@ -14,10 +14,10 @@
                 <div class="filters">
                     <form action="/filter">
                         <label for="sort-by">Sort by</label>
-                        <select name="sort-by" id="sort-by">
-                            <option value="">--------------</option>
-                            <option value="">recent</option>
-                            <option value="">oldest</option>
+                        <select name="sort-by" id="sort-by" class="field">
+                            <option value="">default</option>
+                            <option value="recent">recent</option>
+                            <option value="oldest">oldest</option>
                         </select>
                     </form>
                 </div>
@@ -26,20 +26,21 @@
                 </div>
             </div>
             <div class="blog-posts grid">
-                <% for (let i = 0; i < 10; i++) { %>
+                <% posts.forEach((post) => { %>
                     <div class="blog-post flex-col">
-                        <img class="blog-image" src="https://upload.wikimedia.org/wikipedia/commons/5/5d/189_Red-and-green_macaw_couple_flying_in_Chapada_dos_Guimar%C3%A3es_National_Park_Photo_by_Giles_Laurent.jpg" alt="blog-image"/>
+                        <img class="blog-image" src="<%= post.image %>" alt="blog-image"/>
                         <div class="blog-info flex-col">
-                            <span class="blog-category">Blog Category <%= i %></span>
-                            <a href="/posts/<%= i %>" class="text-dec-none blog-title">
-                                <h3 class="blog-title">Blog title <%= i %></h3>
+                            <a href="/posts/<%= post.id %>" class="text-dec-none blog-title">
+                                <h3 class="blog-title"><%= post.title %></h3>
                             </a>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit...</p>
+                            <p class="blog-post-desc"><%= post.description %></p>
                         </div>
                     </div>
-                <% } %>
+                <% }) %>
             </div>
         </main>
+        <%- include("./includes/footer.ejs") %>
     </div>
 </body>
 </html>
+<!-- forEach.(key => key) -->
