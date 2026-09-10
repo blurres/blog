@@ -77,12 +77,43 @@ body {
     border-radius: 10px;
 }
 
+/* Add post form styles */
+.add-post-form {
+    /* background-color: #FA5C5C; */
+    min-width: 45vw;
+    margin-top: 50px;
+}
+
+.add-post-form .form-group {
+    margin: 10px 0;
+    gap: .3rem;
+}
+
+.add-post-form .form-group .field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #E8E8E8;
+    background-color: #FAFAFA;
+}
+
+.add-post-btn {
+    cursor: pointer;
+    border: none;
+    width: 20%;
+    height: 2.5rem;
+    align-self: flex-end;
+    font-weight: 600;
+    font-size: .97rem;
+}
+
 .footer {
     align-self: flex-start;
     padding-bottom: 20px;
     position: absolute;
     bottom: 0;
 }
+
+/* Utils */
 
 .text-dec-none {
     text-decoration: none;

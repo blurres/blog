@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
     });
 })
 
+app.get("/create", (req, res) => {
+    res.render("addPost.ejs");
+})
+
 app.listen(PORT, (req, res) => {
     console.log(`Listenning on port ${PORT}...`);
 })
