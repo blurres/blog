@@ -1,6 +1,6 @@
 
 
-    <%- include("./includes/header.ejs") %>
+    <%- include("includes/header.ejs") %>
 
         <main class="blog flex-col">
             <div class="blog-header flex">
@@ -19,20 +19,33 @@
                 </div>
             </div>
             <div class="blog-posts grid">
-                <% posts.forEach((post) => { %>
-                    <div class="blog-post flex-col">
-                        <img class="blog-image" src="<%= post.image %>" alt="blog-image"/>
-                        <div class="blog-info flex-col">
-                            <a href="/posts/<%= post.id %>" class="text-dec-none blog-title">
-                                <h3 class="blog-title"><%= post.title %></h3>
-                            </a>
-                            <p class="blog-post-desc"><%= post.description %></p>
-                        </div>
-                    </div>
-                <% }) %>
+                <%
+                    if (posts.length > 0) {
+                        posts.forEach((post) => { %>
+                            <div class="blog-post flex-col card">
+                                <img class="blog-image" src="<%= post.image %>" alt="blog-image"/>
+                                <div class="blog-info flex-col">
+                                    <a href="/post/<%= post.id %>" class="text-dec-none blog-title">
+                                        <h3 class="blog-title"><%= post.title %></h3>
+                                    </a>
+
+                                    <% if (post.description.length > 100) { %>
+                                        <p class="blog-post-desc"><%= post.description.slice(0, 100) + "..." %></p>
+                                    <% } else { %>
+                                        <p class="blog-post-desc"><%= post.description %></p>
+                                    <% } %>
+                                </div>
+                            </div>
+                <%      })
+                    } else { %>
+
+                    <p class="text-center">No posts yet.</p>
+
+                <%  }
+                %>
             </div>
         </main>
-        <%- include("./includes/footer.ejs") %>
+        <%- include("includes/footer.ejs") %>
     </div>
 </body>
 </html>

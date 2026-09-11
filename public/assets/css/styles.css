@@ -9,6 +9,7 @@
 
 body {
     background: #F5F5F5;
+    min-height: 100vh;
 }
 
 
@@ -47,11 +48,8 @@ body {
 }
 
 .blog-post {
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     align-items: center;
     gap: .6rem;
-    border-radius: 10px;
     cursor: pointer;
     transition: all .3s ease-out;
 }
@@ -81,7 +79,6 @@ body {
 
 /* Add post form styles */
 .add-post-form {
-    /* background-color: #FA5C5C; */
     min-width: 45vw;
     margin-top: 50px;
 }
@@ -92,7 +89,6 @@ body {
 }
 
 .form-group label {
-    color: #FA5C5C;
     font-size: 1.1rem;
     font-weight: 600;
 }
@@ -120,17 +116,71 @@ body {
     font-size: .97rem;
 }
 
-.footer {
+/* Single post page styles */
+.single-post-container {
+    justify-content: space-between;
+}
+
+.single-post {
+    width: 55vw;
+    gap: .4rem;
+}
+
+.single-post-container .recent-posts-card {
     align-self: flex-start;
-    /* padding-bottom: 10px; */
-    position: relative;
-    bottom: 0;
+    margin-top: 55px;
+    margin-left: auto;
+    max-width: 30vw;
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+
+.recent-post {
+    margin: 10px 0;
+    gap: .4rem;
+}
+
+.recent-post-image {
+    width: 120px;
+    border-radius: 8px;
+}
+
+.recent-post-desc {
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+.actions {
+    margin-top: 20px;
+}
+
+.actions .btn-edit {
+    background-color: #FFCB56;
+    color: #1f1f1f;
+}
+
+.actions .btn-delete {
+    background-color: #FA5C5C;
 }
 
 /* Utils */
+.footer {
+    align-self: flex-start;
+    padding-bottom: 10px;
+    position: fixed;
+    bottom: 0;
+}
 
 .text-dec-none {
     text-decoration: none;
+}
+
+.peachy {
+    color: #FA5C5C;
+}
+
+.padb-10 {
+    padding-bottom: 10px;
 }
 
 .flex {
@@ -151,6 +201,12 @@ body {
     border-radius: 5px;
     padding: 5px;
     width: 10rem;
+}
+
+.card {
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 10px;
 }
 
 .btn {

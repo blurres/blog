@@ -1,0 +1,45 @@
+<%- include("includes/header.ejs"); %>
+    <div class="container flex single-post-container">
+        <div class="single-post flex-col">
+            <h1 class="padb-10"><%= post["title"] %></h1>
+            <img src="<%= post["image"] %>" class="post-image solo-post" alt="image banner for <%= post["title"] %>">
+            <p><%= post["description"] %></p>
+            <div class="actions">
+                <a href="/editPost" class="text-dec-none btn btn-edit action-btn">Edit</a>
+                <a href="/deletePost" class="text-dec-none btn btn-delete action-btn">Delete</a>
+            </div>
+        </div>
+
+            <div class="recent-posts-card card">
+                <h3>Recent posts</h3>
+                <hr>
+                <div class="recent-posts">
+                <%
+                    const currentPost = post;
+                    const otherPosts = posts.filter(otherPost => otherPost != currentPost)
+                    otherPosts.forEach(post => { %>
+                <div class="recent-post flex">
+                    <img class="recent-post-image"  src="<%= post.image %>" alt="Image of: <%= post.title %>" />
+                    <div class="recent-post-info">
+                        <a a href="/post/<%= post.id %>" class="text-dec-none">
+                            <h4 class="recent-post-title peachy">
+                                <%= post.title %>
+                            </h4>
+                        </a>
+                        <% if (post.description.length > 100) { %>
+                            <p class="recent-post-desc"><%= post.description.slice(0, 100) + "..." %></p>
+                        <% } else { %>
+                            <p class="recent-post-desc"><%= post.description %></p>
+                        <% } %>
+                    </div>
+
+                </div>
+
+                  <%  })
+                %>
+                </div>
+            </div>
+    </div>
+    <%- include("includes/footer.ejs"); %>
+</body>
+</html>
