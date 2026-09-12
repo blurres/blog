@@ -3,7 +3,7 @@
         <div class="single-post flex-col">
             <h1 class="padb-10"><%= post["title"] %></h1>
             <img src="<%= post["image"] %>" class="post-image solo-post" alt="image banner for <%= post["title"] %>">
-            <p><%= post["description"] %></p>
+            <p class="single-post-description"><%= post["description"] %></p>
             <div class="actions">
                 <a href="/editPost" class="text-dec-none btn btn-edit action-btn">Edit</a>
                 <a href="/deletePost" class="text-dec-none btn btn-delete action-btn">Delete</a>

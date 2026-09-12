@@ -126,12 +126,20 @@ body {
     gap: .4rem;
 }
 
+.single-post-description {
+    padding: 10px 0;
+    text-align: justify;
+    line-height: 2rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
 .single-post-container .recent-posts-card {
     align-self: flex-start;
     margin-top: 55px;
     margin-left: auto;
     max-width: 30vw;
-    max-height: 60vh;
+    max-height: 80vh;
     overflow-y: scroll;
 }
 
